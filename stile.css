@@ -1,0 +1,319 @@
+/* Caratteri: Libre Baskerville ospitato nel sito (niente richieste a Google Fonts) */
+@font-face { font-family:'Libre Baskerville'; font-style:italic; font-weight:400; font-display:swap; src:url('fonts/librebaskerville-italic-400-latin-ext.woff2') format('woff2'); unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family:'Libre Baskerville'; font-style:italic; font-weight:400; font-display:swap; src:url('fonts/librebaskerville-italic-400-latin.woff2') format('woff2'); unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family:'Libre Baskerville'; font-style:normal; font-weight:400; font-display:swap; src:url('fonts/librebaskerville-normal-400-latin-ext.woff2') format('woff2'); unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family:'Libre Baskerville'; font-style:normal; font-weight:400; font-display:swap; src:url('fonts/librebaskerville-normal-400-latin.woff2') format('woff2'); unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family:'Libre Baskerville'; font-style:normal; font-weight:700; font-display:swap; src:url('fonts/librebaskerville-normal-700-latin-ext.woff2') format('woff2'); unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family:'Libre Baskerville'; font-style:normal; font-weight:700; font-display:swap; src:url('fonts/librebaskerville-normal-700-latin.woff2') format('woff2'); unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+
+/* Repunto — stile comune a tutte le pagine del sito. Colori e motivi da 14-sito/design-repunto.md */
+body { margin:0; }
+
+/* intestazione */
+.testata { background:var(--carta); border-bottom:1.5px dashed var(--linea); position:relative; z-index:5; }
+.testata .wrap { display:flex; align-items:center; justify-content:space-between; gap:16px; min-height:84px; }
+.testata .logo img { height:58px; width:auto; }
+.testata nav ul { list-style:none; display:flex; flex-wrap:wrap; gap:6px 26px; margin:0; padding:0; font-size:15px; }
+.testata nav a { text-decoration:none; padding:10px 0; display:inline-block; border-bottom:1.5px solid transparent; }
+.testata nav a:hover, .testata nav a[aria-current] { border-bottom:1.5px dashed var(--oro-scuro); }
+.testata nav .shop a { background:var(--oro); padding:10px 20px; border-radius:999px; border:0; }
+.menu-btn { display:none; }
+
+/* piè di pagina */
+.piede { background:var(--ink); color:#E9E2D3; padding-block:64px 32px; font-size:15px; line-height:1.7; }
+.piede .wrap { display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:40px; }
+.piede h2 { font-size:13px; letter-spacing:.18em; text-transform:uppercase; color:var(--oro); margin-bottom:14px; }
+.piede ul { list-style:none; margin:0; padding:0; }
+.piede a { color:#fff; text-decoration:none; border-bottom:1px dashed rgba(255,255,255,.35); }
+.piede li { padding:3px 0; }
+.piede .legale { grid-column:1/-1; border-top:1.5px dashed rgba(233,226,211,.25); padding-top:22px; margin-top:12px; font-size:13px; color:#BDB6A6; }
+.piede .logo-chiaro { width:84px; height:84px; border-radius:50%; background:var(--carta); padding:6px; margin-bottom:16px; }
+
+/* messaggio dopo l'iscrizione */
+.grazie { display:none; font-size:16px; margin-top:12px; }
+form.inviato .grazie { display:block; }
+form.inviato .campo { display:none; }
+
+@media (max-width:860px) {
+  .testata .wrap { flex-wrap:wrap; min-height:0; padding-block:12px; }
+  .testata .logo img { height:48px; }
+  .menu-btn { display:inline-flex; align-items:center; gap:8px; min-height:44px; padding:0 18px; border-radius:999px; border:1.5px solid var(--ink); background:transparent; font:inherit; font-size:15px; color:var(--ink); cursor:pointer; }
+  .testata nav { flex-basis:100%; display:none; }
+  .testata.aperta nav { display:block; }
+  .testata nav ul { flex-direction:column; gap:0; padding:8px 0 12px; }
+  .testata nav li { border-top:1px dashed var(--linea); }
+  .testata nav a { padding:14px 0; width:100%; }
+  .testata nav .shop a { margin-top:10px; text-align:center; }
+  .piede .wrap { grid-template-columns:1fr; gap:32px; }
+}
+
+@font-face { font-family:"RepuntoMano"; src:url("fonts/RepuntoMano.ttf") format("truetype"); font-display:swap; }
+
+:root {
+  --oro:#DDB136; --oro-scuro:#9A7612; --ink:#2F3432; --ink-soft:#5E605B;
+  --carta:#FAF6EE; --sabbia:#EFE6D4; --verde:#2E4A3F; --linea:#D9CCB3;
+  --gutter:clamp(18px,4vw,48px);
+}
+body {
+  font-family:"Libre Baskerville", Georgia, serif; color:var(--ink); background:var(--carta);
+  font-size:17px; line-height:1.75; -webkit-font-smoothing:antialiased;
+}
+*, *::before, *::after { box-sizing:border-box; }
+img { max-width:100%; height:auto; display:block; }
+p { margin:0 0 1em; }
+a { color:inherit; }
+.wrap { max-width:1180px; margin:0 auto; padding-inline:var(--gutter); }
+section { padding-block:clamp(64px,9vw,112px); position:relative; }
+
+/* tipografia */
+h1, h2, h3 { font-weight:400; margin:0; line-height:1.18; letter-spacing:-.01em; }
+h1 { font-size:clamp(40px,6.4vw,76px); line-height:1.06; }
+h1 em, h2 em { font-style:italic; color:var(--oro-scuro); }
+h2 { font-size:clamp(28px,3.8vw,44px); margin-bottom:.6em; }
+h3 { font-size:21px; margin-bottom:.4em; }
+.etichetta { display:inline-flex; align-items:center; gap:10px; font-size:12px; letter-spacing:.18em; text-transform:uppercase; color:var(--oro-scuro); margin-bottom:22px; }
+.etichetta::before { content:""; width:28px; border-top:1.5px dashed currentColor; }
+.lead { font-size:clamp(18px,1.6vw,20px); color:var(--ink-soft); max-width:32em; }
+.mano { font-family:"RepuntoMano", "Libre Baskerville", cursive; font-size:30px; line-height:1.1; color:var(--ink); }
+
+/* pulsanti */
+.btn { display:inline-flex; align-items:center; justify-content:center; gap:10px; min-height:52px; padding:14px 28px; border-radius:999px; background:var(--oro); color:var(--ink); font:inherit; font-size:16px; text-decoration:none; border:0; cursor:pointer; transition:transform .15s ease, box-shadow .15s ease; }
+.btn:hover { transform:translateY(-2px); box-shadow:0 8px 20px -10px rgba(47,52,50,.6); }
+.btn.scuro { background:var(--ink); color:var(--carta); }
+.btn.vuoto { background:transparent; color:inherit; box-shadow:inset 0 0 0 1.5px currentColor; }
+.freccia { color:var(--oro-scuro); text-decoration:none; border-bottom:1.5px dashed currentColor; padding-bottom:2px; font-size:16px; }
+
+/* motivo: bordo a zig zag come le forbici dei campionari */
+.zigzag-sotto { --z:14px; clip-path:polygon(0 0,100% 0,100% calc(100% - var(--z)),97.5% 100%,95% calc(100% - var(--z)),92.5% 100%,90% calc(100% - var(--z)),87.5% 100%,85% calc(100% - var(--z)),82.5% 100%,80% calc(100% - var(--z)),77.5% 100%,75% calc(100% - var(--z)),72.5% 100%,70% calc(100% - var(--z)),67.5% 100%,65% calc(100% - var(--z)),62.5% 100%,60% calc(100% - var(--z)),57.5% 100%,55% calc(100% - var(--z)),52.5% 100%,50% calc(100% - var(--z)),47.5% 100%,45% calc(100% - var(--z)),42.5% 100%,40% calc(100% - var(--z)),37.5% 100%,35% calc(100% - var(--z)),32.5% 100%,30% calc(100% - var(--z)),27.5% 100%,25% calc(100% - var(--z)),22.5% 100%,20% calc(100% - var(--z)),17.5% 100%,15% calc(100% - var(--z)),12.5% 100%,10% calc(100% - var(--z)),7.5% 100%,5% calc(100% - var(--z)),2.5% 100%,0 calc(100% - var(--z))); }
+
+/* ===== 1. APERTURA ===== */
+.hero { padding-block:clamp(40px,6vw,80px) clamp(72px,9vw,120px); overflow:hidden; }
+.hero .wrap { display:grid; grid-template-columns:7fr 5fr; gap:clamp(32px,5vw,72px); align-items:center; }
+.hero .lead { margin-top:26px; }
+.modulo { margin-top:34px; padding:26px 26px 22px; background:#fff; border-radius:18px; position:relative; max-width:520px; box-shadow:0 18px 40px -28px rgba(47,52,50,.45); }
+.modulo::before { content:""; position:absolute; inset:8px; border:1.5px dashed var(--linea); border-radius:12px; pointer-events:none; }
+.modulo h2 { font-size:22px; margin-bottom:8px; }
+.modulo p { font-size:15.5px; color:var(--ink-soft); line-height:1.65; }
+.campo { display:flex; gap:10px; flex-wrap:wrap; position:relative; }
+.campo input { flex:1 1 220px; min-height:52px; padding:0 20px; border:1.5px solid var(--linea); border-radius:999px; font:inherit; font-size:16px; background:var(--carta); color:var(--ink); }
+.campo input:focus { outline:2px solid var(--oro); outline-offset:2px; }
+.campo .btn { flex:0 0 auto; }
+
+.collage { position:relative; justify-self:center; width:min(100%,460px); }
+.collage .grande { width:100%; aspect-ratio:4/5; object-fit:cover; border-radius:240px 240px 18px 18px; position:relative; z-index:1; }
+.collage .sole { position:absolute; width:62%; aspect-ratio:1; border-radius:50%; background:var(--oro); right:-14%; top:-6%; z-index:0; }
+.collage .sole::after { content:""; position:absolute; inset:10px; border-radius:50%; border:1.5px dashed rgba(47,52,50,.35); }
+.collage .piccola { position:absolute; z-index:2; width:44%; aspect-ratio:1; object-fit:cover; left:-16%; bottom:-10%; border-radius:14px; border:8px solid var(--carta); box-shadow:0 14px 30px -18px rgba(47,52,50,.55); }
+.collage .firma { position:absolute; z-index:3; right:-4%; bottom:-14%; transform:rotate(-6deg); display:flex; align-items:flex-end; gap:6px; }
+.collage .firma svg { width:46px; height:46px; color:var(--ink); }
+
+/* ===== 2. FATTI, su inchiostro ===== */
+.fatti { background:var(--ink); color:var(--carta); padding-block:56px 72px; }
+.fatti .wrap { display:grid; grid-template-columns:repeat(3,1fr); gap:36px; }
+.fatto { display:flex; gap:18px; align-items:flex-start; }
+.fatto .num { flex:0 0 58px; height:58px; border-radius:50%; border:1.5px dashed var(--oro); color:var(--oro); display:grid; place-items:center; font-size:20px; }
+.fatto p { margin:0; font-size:16px; line-height:1.6; color:#E9E2D3; }
+.fatto strong { display:block; color:#fff; font-weight:400; font-size:19px; margin-bottom:4px; }
+
+/* ===== 3. COSA TROVI ===== */
+.trovi .testa { display:flex; justify-content:space-between; align-items:end; gap:24px; flex-wrap:wrap; margin-bottom:44px; }
+.trovi .testa h2 { margin:0; max-width:14em; }
+.griglia { display:grid; grid-template-columns:1.25fr 1fr 1fr; gap:28px; align-items:start; }
+.card { position:relative; }
+.card:nth-child(2) { margin-top:64px; }
+.card:nth-child(3) { margin-top:128px; }
+.card .foto { position:relative; border-radius:16px; overflow:hidden; aspect-ratio:4/5; }
+.card:nth-child(1) .foto { aspect-ratio:4/5.2; }
+.card .foto img { width:100%; height:100% !important; object-fit:cover; transition:transform .5s ease; }
+.card:hover .foto img { transform:scale(1.04); }
+.card .foto::after { content:""; position:absolute; inset:10px; border:1.5px dashed rgba(255,255,255,.75); border-radius:10px; pointer-events:none; }
+.card .n { position:absolute; top:-16px; left:18px; z-index:2; width:48px; height:48px; border-radius:50%; background:var(--oro); display:grid; place-items:center; font-size:15px; }
+.card h3 { margin-top:22px; }
+.card p { color:var(--ink-soft); font-size:16px; line-height:1.65; }
+
+/* ===== 4. CORSI, su verde ===== */
+.corsi { background:var(--verde); color:#F3EEE3; }
+.corsi .wrap { display:grid; grid-template-columns:5fr 6fr; gap:clamp(36px,6vw,88px); align-items:center; }
+.corsi .etichetta { color:var(--oro); }
+.corsi h2 em { color:var(--oro); }
+.corsi .foto-corsi { position:relative; }
+.corsi .foto-corsi img { width:100%; aspect-ratio:4/5; object-fit:cover; border-radius:16px 16px 0 0; }
+.corsi .foto-corsi .mano { position:absolute; left:-8px; bottom:-34px; background:var(--oro); color:var(--ink); padding:14px 22px 10px; border-radius:999px; font-size:26px; transform:rotate(-4deg); }
+.formati { list-style:none; padding:0; margin:28px 0 34px; }
+.formati li { display:flex; gap:16px; align-items:baseline; padding:14px 0; border-bottom:1.5px dashed rgba(243,238,227,.28); font-size:16.5px; }
+.formati li:first-child { border-top:1.5px dashed rgba(243,238,227,.28); }
+.formati b { font-weight:400; color:var(--oro); min-width:8.5em; }
+
+/* ===== 5. CHI SONO ===== */
+.chi .wrap { display:grid; grid-template-columns:4fr 6fr; gap:clamp(36px,6vw,96px); align-items:center; }
+.ritratto { position:relative; width:min(100%,400px); justify-self:center; }
+.ritratto img { width:100%; aspect-ratio:1; border-radius:50%; object-fit:cover; object-position:55% 22%; }
+.ritratto::before { content:""; position:absolute; inset:-14px; border-radius:50%; border:1.5px dashed var(--oro-scuro); }
+.ritratto .mano { position:absolute; right:-6px; bottom:6px; font-size:46px; transform:rotate(-8deg); background:var(--carta); padding:4px 14px; border-radius:999px; }
+.chi .testo p { max-width:34em; }
+
+/* ===== 6. STAMPA ===== */
+.stampa { background:var(--sabbia); }
+.stampa .grande-cit { max-width:900px; margin:0 auto 64px; text-align:center; }
+.virgolette { font-size:120px; line-height:.6; color:var(--oro); display:block; height:52px; }
+blockquote { margin:0; }
+.grande-cit blockquote { font-size:clamp(22px,2.6vw,31px); line-height:1.5; font-style:italic; }
+cite { display:block; margin-top:20px; font-style:normal; font-size:13px; letter-spacing:.16em; text-transform:uppercase; color:var(--oro-scuro); }
+.due-cit { display:grid; grid-template-columns:1fr 1fr; gap:28px; }
+.due-cit blockquote { background:var(--carta); border-radius:18px; padding:30px 32px; font-size:16.5px; line-height:1.7; position:relative; }
+.due-cit blockquote::before { content:""; position:absolute; inset:8px; border:1.5px dashed var(--linea); border-radius:12px; pointer-events:none; }
+.podcast { text-align:center; margin:44px 0 0; font-size:16px; color:var(--ink-soft); }
+.podcast a { color:var(--oro-scuro); }
+
+/* ===== 7. DOMANDE ===== */
+.faq .wrap { display:grid; grid-template-columns:4fr 7fr; gap:clamp(32px,6vw,96px); align-items:start; }
+.faq .lato { position:sticky; top:24px; }
+.faq .lato .mano { margin-top:18px; font-size:28px; color:var(--oro-scuro); }
+details { border-bottom:1.5px dashed var(--linea); }
+details:first-of-type { border-top:1.5px dashed var(--linea); }
+summary { list-style:none; cursor:pointer; display:flex; justify-content:space-between; align-items:center; gap:20px; padding:22px 0; font-size:clamp(17px,1.5vw,19px); }
+summary::-webkit-details-marker { display:none; }
+summary::after { content:"+"; flex:0 0 38px; height:38px; border-radius:50%; background:var(--sabbia); display:grid; place-items:center; font-size:22px; color:var(--oro-scuro); transition:transform .2s ease; }
+details[open] summary::after { transform:rotate(45deg); background:var(--oro); color:var(--ink); }
+details p { color:var(--ink-soft); font-size:16.5px; padding-right:58px; margin-bottom:22px; }
+
+/* ===== 8. NEWSLETTER FINALE, su oro ===== */
+.finale { background:var(--oro); }
+.finale .wrap { display:grid; grid-template-columns:5fr 6fr; gap:clamp(32px,6vw,80px); align-items:center; }
+.finale img { width:100%; aspect-ratio:1; object-fit:cover; border-radius:50%; border:10px solid rgba(250,246,238,.55); }
+.finale h2 em { color:var(--ink); }
+.finale p { font-size:17px; max-width:30em; }
+.finale .campo input { background:#fff; border-color:#fff; }
+
+/* note per Greta (non vanno online) */
+.nota { display:block; font:12.5px/1.5 Arial, sans-serif; color:#6b4b00; background:#fff8e0; border-left:3px solid #e0b000; padding:8px 12px; margin-top:16px; max-width:640px; text-align:left; border-radius:0 6px 6px 0; }
+
+/* telefono */
+@media (max-width:860px) {
+  .hero .wrap, .corsi .wrap, .chi .wrap, .faq .wrap, .finale .wrap { grid-template-columns:1fr; }
+  .collage { width:min(82%,380px); margin:28px auto 40px; }
+  .fatti .wrap { grid-template-columns:1fr; gap:24px; }
+  .griglia { grid-template-columns:1fr; gap:48px; }
+  .card:nth-child(2), .card:nth-child(3) { margin-top:0; }
+  .card .foto, .card:nth-child(1) .foto { aspect-ratio:5/4; }
+  .corsi .foto-corsi { order:2; margin-bottom:24px; }
+  .corsi .foto-corsi img { aspect-ratio:5/4; }
+  .ritratto { width:min(76%,320px); }
+  .due-cit { grid-template-columns:1fr; }
+  .faq .lato { position:static; }
+  .formati li { flex-direction:column; gap:2px; }
+  .formati b { min-width:0; }
+  details p { padding-right:0; }
+  .finale img { width:min(70%,300px); margin:0 auto; }
+}
+@media (prefers-reduced-motion:reduce) { * { transition:none !important; } }
+/* ===================== PAGINE INTERNE ===================== */
+
+/* collegamento «vai al contenuto» per chi usa la tastiera */
+.salta { position:absolute; left:-9999px; top:8px; z-index:10; background:var(--oro); color:var(--ink); padding:10px 18px; border-radius:999px; }
+.salta:focus { left:16px; }
+
+/* apertura di pagina */
+.apertura { padding-block:clamp(48px,7vw,96px) clamp(56px,7vw,88px); }
+.apertura .wrap { display:grid; grid-template-columns:7fr 5fr; gap:clamp(32px,5vw,72px); align-items:center; }
+.apertura.sola .wrap { grid-template-columns:1fr; max-width:900px; }
+.apertura h1 { font-size:clamp(36px,5.2vw,62px); line-height:1.1; }
+.apertura .lead { margin-top:24px; }
+.apertura .foto-apertura { position:relative; justify-self:center; width:min(100%,440px); }
+.apertura .foto-apertura img { width:100%; aspect-ratio:4/5; object-fit:cover; border-radius:220px 220px 16px 16px; position:relative; z-index:1; }
+.apertura .foto-apertura::before { content:""; position:absolute; width:58%; aspect-ratio:1; border-radius:50%; background:var(--oro); left:-12%; bottom:-8%; z-index:0; }
+.apertura .azioni { display:flex; flex-wrap:wrap; gap:14px; margin-top:32px; }
+
+/* fascia di dati brevi */
+.dati { list-style:none; margin:28px 0 0; padding:0; display:flex; flex-wrap:wrap; gap:14px 34px; }
+.dati li { display:flex; flex-direction:column; font-size:16px; }
+.dati b { font-weight:400; font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:var(--oro-scuro); }
+
+/* blocchi alterni */
+.sabbia { background:var(--sabbia); }
+.verde { background:var(--verde); color:#F3EEE3; }
+.verde .etichetta, .verde h2 em { color:var(--oro); }
+.scuro { background:var(--ink); color:var(--carta); }
+.due { display:grid; grid-template-columns:1fr 1fr; gap:clamp(32px,6vw,88px); align-items:center; }
+.due.testo-prima > :first-child { order:0; }
+.due img.tonda { width:min(100%,420px); aspect-ratio:1; object-fit:cover; border-radius:50%; justify-self:center; }
+.due img.rett { width:100%; aspect-ratio:4/5; object-fit:cover; border-radius:16px; }
+.stretto { max-width:760px; margin-inline:auto; }
+
+/* passi numerati */
+.passi { list-style:none; counter-reset:passo; padding:0; margin:28px 0 0; display:grid; gap:0; }
+.passi li { counter-increment:passo; display:flex; gap:20px; align-items:flex-start; padding:20px 0; border-bottom:1.5px dashed var(--linea); }
+.passi li:first-child { border-top:1.5px dashed var(--linea); }
+.passi li::before { content:counter(passo); flex:0 0 46px; height:46px; border-radius:50%; background:var(--oro); color:var(--ink); display:grid; place-items:center; font-size:17px; }
+.verde .passi li, .verde .passi li:first-child { border-color:rgba(243,238,227,.28); }
+
+/* schede (griglia di 3) */
+.schede { display:grid; grid-template-columns:repeat(3,1fr); gap:28px; margin-top:36px; }
+.scheda { background:var(--carta); border-radius:18px; padding:28px; position:relative; }
+.scheda::before { content:""; position:absolute; inset:8px; border:1.5px dashed var(--linea); border-radius:12px; pointer-events:none; }
+.scheda h3 { margin-bottom:10px; }
+.scheda p { font-size:16px; color:var(--ink-soft); margin:0; }
+.sabbia .scheda { background:#fff; }
+.verde .scheda { background:rgba(250,246,238,.08); }
+.verde .scheda::before { border-color:rgba(243,238,227,.3); }
+.verde .scheda p { color:#E9E2D3; }
+
+/* modulo «scrivimi» */
+.scrivi { background:#fff; border-radius:20px; padding:clamp(24px,4vw,40px); position:relative; box-shadow:0 18px 40px -28px rgba(47,52,50,.45); }
+.scrivi::before { content:""; position:absolute; inset:8px; border:1.5px dashed var(--linea); border-radius:14px; pointer-events:none; }
+.scrivi h2 { font-size:clamp(24px,3vw,32px); }
+.scrivi label { display:block; font-size:14px; letter-spacing:.04em; color:var(--ink-soft); margin:16px 0 6px; }
+.scrivi input, .scrivi textarea { width:100%; min-height:52px; padding:12px 18px; border:1.5px solid var(--linea); border-radius:14px; font:inherit; font-size:16px; background:var(--carta); color:var(--ink); position:relative; }
+.scrivi textarea { min-height:150px; resize:vertical; line-height:1.6; }
+.scrivi input:focus, .scrivi textarea:focus { outline:2px solid var(--oro); outline-offset:2px; }
+.scrivi .btn { margin-top:22px; position:relative; }
+.scrivi .piccolo { font-size:14px; color:var(--ink-soft); margin:18px 0 0; position:relative; }
+.scrivi .piccolo a { color:var(--oro-scuro); }
+
+/* articolo del blog */
+.articolo { max-width:760px; margin-inline:auto; }
+.articolo .firma-art { font-size:15px; color:var(--ink-soft); font-style:italic; margin-top:18px; }
+.articolo h2 { font-size:clamp(26px,3.2vw,36px); margin:1.6em 0 .5em; }
+.articolo h3 { font-size:22px; margin:1.4em 0 .4em; }
+.articolo ul, .articolo ol { padding-left:1.3em; }
+.articolo li { margin-bottom:.5em; }
+.articolo .breve { background:var(--sabbia); border-radius:16px; padding:22px 26px; margin:28px 0; }
+.articolo figure { margin:32px 0; }
+.articolo figure img { width:100%; border-radius:14px; }
+.articolo figcaption { font-size:14px; color:var(--ink-soft); margin-top:8px; font-style:italic; }
+.articolo table { width:100%; border-collapse:collapse; font-size:15.5px; margin:20px 0; }
+.articolo th, .articolo td { text-align:left; padding:12px 10px; border-bottom:1.5px dashed var(--linea); vertical-align:top; }
+.articolo th { font-weight:400; color:var(--oro-scuro); font-size:13px; letter-spacing:.1em; text-transform:uppercase; }
+.articolo .fonti { font-size:14.5px; color:var(--ink-soft); }
+.articolo .fonti a { color:var(--oro-scuro); word-break:break-word; }
+.articolo a { color:var(--oro-scuro); }
+.tabella-scorre { overflow-x:auto; }
+
+/* elenco articoli */
+.elenco-art { display:grid; gap:28px; margin-top:32px; }
+.elenco-art a.voce { display:block; text-decoration:none; background:#fff; border-radius:18px; padding:28px 30px; position:relative; }
+.elenco-art a.voce::before { content:""; position:absolute; inset:8px; border:1.5px dashed var(--linea); border-radius:12px; pointer-events:none; }
+.elenco-art .data { font-size:13px; letter-spacing:.14em; text-transform:uppercase; color:var(--oro-scuro); }
+.elenco-art h2 { font-size:clamp(22px,2.6vw,28px); margin:8px 0 10px; }
+.elenco-art p { color:var(--ink-soft); margin:0; font-size:16px; }
+
+/* calendario delle lezioni */
+.calendario { display:flex; flex-direction:column; gap:28px; margin-top:28px; }
+.cal-mese { font-size:26px; color:var(--oro-scuro); }
+.cal-settimana { font-style:italic; color:var(--ink-soft); font-size:15px; padding-bottom:6px; }
+.cal-giorno { display:flex; align-items:center; gap:16px; padding:12px 0; border-bottom:1.5px dashed var(--linea); flex-wrap:wrap; }
+.cal-data { width:56px; height:56px; border-radius:50%; border:1.5px dashed var(--oro-scuro); display:flex; flex-direction:column; align-items:center; justify-content:center; flex-shrink:0; }
+.cal-data small { font-size:10px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-soft); }
+.cal-data b { font-weight:400; font-size:20px; line-height:1.1; }
+.cal-orari { display:flex; gap:10px; flex-wrap:wrap; flex:1; }
+.orario { min-height:44px; padding:8px 18px; border-radius:999px; border:1.5px solid var(--verde); background:#fff; color:var(--verde); font:inherit; font-size:15px; cursor:pointer; }
+.orario:hover { background:var(--verde); color:#fff; }
+.orario[disabled] { border-color:var(--linea); background:transparent; color:#9C9A92; cursor:default; text-decoration:line-through; }
+.orario.scelto { background:var(--oro); border-color:var(--oro); color:var(--ink); }
+.legenda { display:flex; gap:18px; flex-wrap:wrap; font-size:14px; color:var(--ink-soft); margin-top:18px; }
+
+@media (max-width:860px) {
+  .apertura .wrap, .due, .schede { grid-template-columns:1fr; }
+  .apertura .foto-apertura { width:min(80%,360px); margin-top:12px; }
+  .due img.tonda { width:min(76%,320px); }
+}
