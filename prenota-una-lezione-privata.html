@@ -3,24 +3,41 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="noindex, nofollow">
+
 <title>Lezioni di cucito in campagna, vista Etna | Repunto</title>
-<meta name="description" content="Lezioni di cucito e sartoria nella campagna di Regalbuto con Greta Naselli: mezza giornata il sabato, private o in piccoli gruppi, all'aperto con vista Etna. Da marzo 2027.">
+<meta name="description" content="Lezioni di cucito e sartoria in campagna ai piedi dell'Etna, vicino a Regalbuto, con Greta Naselli: mezza giornata il sabato, private o in piccoli gruppi, all'aperto con vista Etna. Da marzo 2027.">
 <link rel="canonical" href="https://repunto.it/prenota-una-lezione-privata">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="it_IT">
 <meta property="og:site_name" content="Repunto">
 <meta property="og:title" content="Lezioni di cucito in campagna, vista Etna | Repunto">
-<meta property="og:description" content="Lezioni di cucito e sartoria nella campagna di Regalbuto con Greta Naselli: mezza giornata il sabato, private o in piccoli gruppi, all'aperto con vista Etna. Da marzo 2027.">
+<meta property="og:description" content="Lezioni di cucito e sartoria in campagna ai piedi dell'Etna, vicino a Regalbuto, con Greta Naselli: mezza giornata il sabato, private o in piccoli gruppi, all'aperto con vista Etna. Da marzo 2027.">
 <meta property="og:url" content="https://repunto.it/prenota-una-lezione-privata">
 <meta property="og:image" content="https://repunto.it/img/campagna-etna-aranceto.jpg">
 <link rel="icon" href="img/logo-repunto.png" type="image/png">
 <link rel="preload" href="fonts/librebaskerville-normal-400-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="stile.css">
+<script>document.documentElement.classList.add('js');</script>
+<script>
+// Google Analytics (G-EC28FRG0GD): solo su repunto.it e solo dopo il consenso (banner dei cookie in sito.js).
+// Senza consenso Google Analytics non si carica affatto.
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+function caricaStatistiche() {
+  if (window.gaCaricato || !(location.hostname === 'repunto.it' || location.hostname === 'www.repunto.it')) return;
+  window.gaCaricato = true;
+  var ga = document.createElement('script'); ga.async = true;
+  ga.src = 'https://www.googletagmanager.com/gtag/js?id=G-EC28FRG0GD';
+  document.head.appendChild(ga);
+  gtag('js', new Date()); gtag('config', 'G-EC28FRG0GD', { anonymize_ip: true });
+}
+try { if (localStorage.getItem('repunto-cookie') === 'si') caricaStatistiche(); } catch (e) {}
+</script>
 </head>
 <body>
 
 <a class="salta" href="#contenuto">Vai al contenuto</a>
+<div class="filo-lettura" aria-hidden="true"><span></span></div>
 <header class="testata">
   <div class="wrap">
     <a class="logo" href="./" aria-label="Repunto, torna alla home"><img src="img/logo-repunto.png" width="500" height="500" alt="Repunto"></a>
@@ -29,10 +46,10 @@
       <ul>
         <li><a href="corsi-per-scuole-ed-enti">Corsi per enti</a></li>
         <li><a href="prenota-una-lezione-privata" aria-current="page">Lezioni</a></li>
-        <li><a href="https://shop.repunto.it/collection/libreria-digitale-risorse-repunto">Schede per cucire</a></li>
+        <li><a href="schede-per-cucire">Schede per cucire</a></li>
         <li><a href="blog/news">Blog</a></li>
         <li><a href="contact">Contatti</a></li>
-        <li class="shop"><a href="https://shop.repunto.it/">Shop</a></li>
+        <li class="shop"><a href="borse-accessori-repunto-disponibili">Shop</a></li>
       </ul>
     </nav>
   </div>
@@ -44,7 +61,7 @@
     <div>
       <span class="etichetta">Lezioni in campagna · da marzo 2027</span>
       <h1>Lezioni di cucito <em>in campagna, con l'Etna davanti</em></h1>
-      <p class="lead">Una mezza giornata di sabato, ago e filo, si parte da dove sei tu. Le lezioni le faccio nella mia campagna vicino a Regalbuto: quando la giornata è bella si lavora fuori, su due tavoli sotto il gazebo, con la campagna intorno e l'Etna di fronte. A metà ci fermiamo per la merenda.</p>
+      <p class="lead">Una mezza giornata di sabato, ago e filo, si parte da dove sei tu. Le lezioni le faccio nella mia campagna ai piedi dell'Etna: quando la giornata è bella si lavora fuori, su due tavoli sotto il gazebo, con la campagna intorno e l'Etna di fronte. A metà ci fermiamo per la merenda.</p>
       <ul class="dati">
         <li><b>Dove</b>campagna di Regalbuto (Enna)</li>
         <li><b>Quando</b>il sabato, mattina o pomeriggio</li>
@@ -105,7 +122,7 @@
       <label for="l-msg">Messaggio</label>
       <textarea id="l-msg" name="messaggio" required>Ciao Greta, vorrei prenotare una lezione in campagna (privata / gruppo di … persone).</textarea>
       <button class="btn" type="submit">Prepara l'email</button>
-      <p class="piccolo">Si apre la tua app di posta con il messaggio pronto: controlla e invia. Se preferisci, usa il <a class="modulo-payhip" href="#">modulo di contatto</a>.</p>
+      <p class="piccolo">Si apre la tua app di posta con il messaggio pronto: controlla e invia. Se non si apre niente, scrivimi direttamente a <a href="mailto:repunto.studio@gmail.com">repunto.studio@gmail.com</a>.</p>
       <p class="piccolo dopo-invio" hidden>Se l'app di posta non si è aperta, usa il modulo di contatto qui sopra.</p>
     </form>
     <p style="text-align:center;margin-top:28px" class="mano">a presto, Greta</p>
@@ -177,15 +194,15 @@
   <div class="wrap">
     <div>
       <img class="logo-chiaro" src="img/logo-repunto.png" width="500" height="500" loading="lazy" alt="">
-      <p><strong>Repunto</strong> — sartoria rigenerativa di Greta Naselli, artista del tessile.<br>Laboratorio in campagna vicino a Regalbuto (EN), studio a Catania.</p>
+      <p><strong>Repunto</strong> — sartoria rigenerativa di Greta Naselli, artista del tessile.<br>Laboratorio in campagna vicino a Regalbuto (EN).</p>
     </div>
     <div>
       <h2>Il sito</h2>
       <ul>
-        <li><a href="https://shop.repunto.it/">Shop</a></li>
-        <li><a href="https://shop.repunto.it/collection/libreria-digitale-risorse-repunto">Schede per cucire</a></li>
+        <li><a href="borse-accessori-repunto-disponibili">Borse e accessori</a></li>
+        <li><a href="schede-per-cucire">Schede per cucire</a></li>
         <li><a href="corsi-per-scuole-ed-enti">Corsi per scuole ed enti</a></li>
-        <li><a href="prenota-una-lezione-privata">Lezioni private a Catania</a></li>
+        <li><a href="prenota-una-lezione-privata">Lezioni private in campagna</a></li>
         <li><a href="cesta-tramanda-riciclare-i-vestiti-artigianalmente">Cesta Tramanda</a></li>
         <li><a href="tenda-patchwork">Tenda patchwork</a></li>
         <li><a href="diventa-rivenditore">Per i negozi</a></li>
@@ -203,9 +220,14 @@
         <li><a href="https://www.pinterest.com/Repunto_Sartoria_Zero_Waste/">Pinterest</a></li>
       </ul>
     </div>
-    <p class="legale">© Repunto di Greta Naselli · P.IVA <span>da inserire</span> · <a href="privacy">Privacy</a></p>
+    <p class="legale">© Repunto di Greta Naselli · P.IVA IT06038500879 · <a href="condizioni-di-vendita">Condizioni di vendita</a> · <a href="privacy">Privacy</a> · <a href="#" data-cookie>Preferenze cookie</a></p>
   </div>
 </footer>
+
+<div class="banner-cookie" id="banner-cookie" role="dialog" aria-label="Cookie" hidden>
+  <p>Uso Google Analytics per contare le visite e capire quali pagine servono di più. Lo accendo solo se mi dici di sì. <a href="privacy">Privacy</a></p>
+  <div><button class="btn" type="button" data-cookie-si>Va bene</button><button class="btn vuoto" type="button" data-cookie-no>No, grazie</button></div>
+</div>
 
 <script src="sito.js"></script>
 
