@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="noindex, nofollow">
+
 <title>Repunto — sartoria rigenerativa in Sicilia | Greta Naselli</title>
 <meta name="description" content="Repunto, laboratorio di sartoria rigenerativa di Greta Naselli in Sicilia: borse e pezzi unici da campionari di tappezzeria, schede per cucire a casa, corsi di cucito e riciclo per scuole ed enti.">
 <link rel="canonical" href="https://repunto.it/">
@@ -17,10 +17,27 @@
 <link rel="icon" href="img/logo-repunto.png" type="image/png">
 <link rel="preload" href="fonts/librebaskerville-normal-400-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="stile.css">
+<script>document.documentElement.classList.add('js');</script>
+<script>
+// Google Analytics (G-EC28FRG0GD): solo su repunto.it e solo dopo il consenso (banner dei cookie in sito.js).
+// Senza consenso Google Analytics non si carica affatto.
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+function caricaStatistiche() {
+  if (window.gaCaricato || !(location.hostname === 'repunto.it' || location.hostname === 'www.repunto.it')) return;
+  window.gaCaricato = true;
+  var ga = document.createElement('script'); ga.async = true;
+  ga.src = 'https://www.googletagmanager.com/gtag/js?id=G-EC28FRG0GD';
+  document.head.appendChild(ga);
+  gtag('js', new Date()); gtag('config', 'G-EC28FRG0GD', { anonymize_ip: true });
+}
+try { if (localStorage.getItem('repunto-cookie') === 'si') caricaStatistiche(); } catch (e) {}
+</script>
 </head>
 <body>
 
 <a class="salta" href="#contenuto">Vai al contenuto</a>
+<div class="filo-lettura" aria-hidden="true"><span></span></div>
 <header class="testata">
   <div class="wrap">
     <a class="logo" href="./" aria-label="Repunto, torna alla home"><img src="img/logo-repunto.png" width="500" height="500" alt="Repunto"></a>
@@ -29,10 +46,10 @@
       <ul>
         <li><a href="corsi-per-scuole-ed-enti">Corsi per enti</a></li>
         <li><a href="prenota-una-lezione-privata">Lezioni</a></li>
-        <li><a href="https://shop.repunto.it/collection/libreria-digitale-risorse-repunto">Schede per cucire</a></li>
+        <li><a href="schede-per-cucire">Schede per cucire</a></li>
         <li><a href="blog/news">Blog</a></li>
         <li><a href="contact">Contatti</a></li>
-        <li class="shop"><a href="https://shop.repunto.it/">Shop</a></li>
+        <li class="shop"><a href="borse-accessori-repunto-disponibili">Shop</a></li>
       </ul>
     </nav>
   </div>
@@ -44,8 +61,8 @@
   <div class="wrap">
     <div>
       <span class="etichetta">Sartoria rigenerativa · Sicilia</span>
-      <h1>Nulla si crea,<br><em>tutto si ricuce.</em></h1>
-      <p class="lead">Sono Greta Naselli, artista del tessile. Nel mio laboratorio in campagna, vicino a Regalbuto, trasformo campionari di tappezzeria in borse e pezzi unici. E insegno a cucire, riparare e riciclare i vestiti.</p>
+      <h1>Nulla si crea,<br><em class="ricuce">tutto si ricuce.<svg class="punto-filo" viewBox="0 0 400 34" preserveAspectRatio="none" aria-hidden="true"><defs><mask id="filo-mask"><path class="filo-traccia" d="M4 22 C60 6 110 30 170 18 S290 6 396 20" fill="none" stroke="#fff" stroke-width="8" pathLength="1"/></mask></defs><path d="M4 22 C60 6 110 30 170 18 S290 6 396 20" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-dasharray="14 9" mask="url(#filo-mask)"/></svg></em></h1>
+      <p class="lead">Sono Greta Naselli, artista del tessile. Nel mio laboratorio in campagna, ai piedi dell'Etna, trasformo campionari di tappezzeria in borse e pezzi unici. E insegno a cucire, riparare e riciclare i vestiti.</p>
 
       <form class="modulo iscrizione" action="https://assets.mailerlite.com/jsonp/1419613/forms/197850587236140136/subscribe" method="post">
         <h2>Ogni mese, un progetto da fare con le tue mani</h2>
@@ -56,7 +73,7 @@
           <input type="hidden" name="anticsrf" value="true">
           <button class="btn" type="submit">Iscriviti</button>
         </div>
-        <p class="grazie" role="status">Grazie! Ti ho appena mandato un'email: clicca il link dentro per confermare l'iscrizione.</p>
+        <p class="grazie" role="status">Grazie, sei dentro! Ti ho appena scritto: se non trovi la mia email, guarda in Promozioni o nello spam.</p>
       </form>
     </div>
 
@@ -75,9 +92,45 @@
 <!-- 2. TRE FATTI -->
 <section class="fatti zigzag-sotto" aria-label="Repunto in breve">
   <div class="wrap">
-    <div class="fatto"><span class="num">10+</span><p><strong>Anni di corsi</strong>Porto il cucito e il riciclo tessile in scuole, enti e associazioni.</p></div>
+    <div class="fatto"><span class="num" data-conta="10">10+</span><p><strong>Anni di corsi</strong>Porto il cucito e il riciclo tessile in scuole, enti e associazioni.</p></div>
     <div class="fatto"><span class="num">1/1</span><p><strong>Ogni pezzo è unico</strong>Ogni borsa nasce da tessuti diversi e non si ripete.</p></div>
     <div class="fatto"><span class="num">0</span><p><strong>Produzione in serie</strong>Tutto passa dalle mie mani, nel mio laboratorio in campagna.</p></div>
+  </div>
+</section>
+
+<!-- 2b. NASTRO DI PEZZI UNICI (copertine del negozio, versioni leggere in img/nastro/) -->
+<section class="nastro" aria-labelledby="nastro-titolo">
+  <div class="wrap testa-nastro">
+    <div>
+      <span class="etichetta">Dal laboratorio</span>
+      <h2 id="nastro-titolo">Uno per uno, <em>mai due uguali</em></h2>
+    </div>
+    <div class="nastro-azione">
+      <p>Borse all'uncinetto, shopper, bustine: ogni pezzo nasce da tessuti e filati diversi, e quando è venduto non torna.</p>
+      <a class="btn" href="borse-accessori-repunto-disponibili">Guarda tutti i pezzi</a>
+    </div>
+  </div>
+  <div class="binario">
+    <ul class="scorre">
+      <li><a href="borse-accessori-repunto-disponibili"><img src="img/nastro/04.jpg" width="320" height="400" loading="lazy" alt="Borsa all'uncinetto nelle sfumature del blu"><span>Borsa all'uncinetto palette blu</span></a></li>
+      <li><a href="borse-accessori-repunto-disponibili"><img src="img/nastro/17.jpg" width="320" height="400" loading="lazy" alt="Borsa a patchwork di tessuti da tappezzeria blu, gialli e rosa"><span>Borsa Patch</span></a></li>
+      <li><a href="borse-accessori-repunto-disponibili"><img src="img/nastro/02.jpg" width="320" height="400" loading="lazy" alt="Borsa all'uncinetto multicolore a tracolla"><span>Borsa all'uncinetto multicolor</span></a></li>
+      <li><a href="borse-accessori-repunto-disponibili"><img src="img/nastro/50.jpg" width="320" height="400" loading="lazy" alt="Zero Waste Bag a righe verdi e grigie con manici in cuoio"><span>Zero Waste Bag verde</span></a></li>
+      <li><a href="borse-accessori-repunto-disponibili"><img src="img/nastro/25.jpg" width="320" height="400" loading="lazy" alt="Bustina con zip in patchwork di seta verde e fucsia"><span>Bustina in seta verde e fucsia</span></a></li>
+      <li><a href="borse-accessori-repunto-disponibili"><img src="img/nastro/03.jpg" width="320" height="400" loading="lazy" alt="Borsa all'uncinetto rosa con righe colorate"><span>Borsa all'uncinetto rosa</span></a></li>
+      <li><a href="borse-accessori-repunto-disponibili"><img src="img/nastro/22.jpg" width="320" height="400" loading="lazy" alt="Borsa piccola a patchwork di velluto e raso con manici rossi"><span>Borsa Patch piccola</span></a></li>
+      <li><a href="borse-accessori-repunto-disponibili"><img src="img/nastro/49.jpg" width="320" height="400" loading="lazy" alt="Zero Waste Bag a righe rosse e bianche"><span>Zero Waste Bag rossa e bianca</span></a></li>
+      <li><a href="borse-accessori-repunto-disponibili"><img src="img/nastro/07.jpg" width="320" height="400" loading="lazy" alt="Borsa all'uncinetto azzurra, bianca e viola"><span>Borsa azzurra, bianca e viola</span></a></li>
+      <li><a href="borse-accessori-repunto-disponibili"><img src="img/nastro/41.jpg" width="320" height="400" loading="lazy" alt="Shopper in tessuto batik rosso con manici neri"><span>Shopper batik</span></a></li>
+      <li><a href="borse-accessori-repunto-disponibili"><img src="img/nastro/21.jpg" width="320" height="400" loading="lazy" alt="Shop bag in tessuto madras a quadri gialli e blu"><span>Shop bag Madras</span></a></li>
+      <li><a href="borse-accessori-repunto-disponibili"><img src="img/nastro/27.jpg" width="320" height="400" loading="lazy" alt="Bustina con zip in patchwork di seta oliva, gialla e blu"><span>Bustina in seta oliva e rosa</span></a></li>
+      <li><a href="borse-accessori-repunto-disponibili"><img src="img/nastro/18.jpg" width="320" height="400" loading="lazy" alt="Shop bag rossa a motivi con tasca chiara"><span>Shop bag Bandiere</span></a></li>
+      <li><a href="borse-accessori-repunto-disponibili"><img src="img/nastro/51.jpg" width="320" height="400" loading="lazy" alt="Zero Waste Bag a righe azzurre e blu"><span>Zero Waste Bag azzurra</span></a></li>
+      <li><a href="borse-accessori-repunto-disponibili"><img src="img/nastro/36.jpg" width="320" height="400" loading="lazy" alt="Piccola sacca a coulisse in tessuto rosa a fiori con cordino verde"><span>Bustina a coulisse Dreamy</span></a></li>
+      <li><a href="borse-accessori-repunto-disponibili"><img src="img/nastro/52.jpg" width="320" height="400" loading="lazy" alt="Zero Waste Bag rossa con manici in cuoio"><span>Zero Waste Bag rossa</span></a></li>
+      <li><a href="borse-accessori-repunto-disponibili"><img src="img/nastro/06.jpg" width="320" height="400" loading="lazy" alt="Borsa all'uncinetto in filato marrone invernale"><span>Borsa filato invernale</span></a></li>
+      <li><a href="borse-accessori-repunto-disponibili"><img src="img/nastro/24.jpg" width="320" height="400" loading="lazy" alt="Shopper blu a pois con tasca blu scuro davanti"><span>Shopper a pois con tasca blu</span></a></li>
+    </ul>
   </div>
 </section>
 
@@ -89,7 +142,7 @@
         <span class="etichetta">Cosa trovi da Repunto</span>
         <h2>Pezzi unici, schede per cucire a casa, <em>corsi</em></h2>
       </div>
-      <a class="freccia" href="https://shop.repunto.it/">Vai allo shop →</a>
+      <a class="freccia" href="borse-accessori-repunto-disponibili">Vai allo shop →</a>
     </div>
     <div class="griglia">
       <article class="card">
@@ -97,14 +150,14 @@
         <div class="foto"><img src="img/borsa-patchwork.jpg" width="700" height="875" loading="lazy" alt="Borsa Repunto in patchwork di tessuti da tappezzeria gialli, viola e rossi, appesa tra fiori gialli"></div>
         <h3>Borse e pezzi unici</h3>
         <p>Borse, pochette e accessori cuciti uno per uno con campionari di tappezzeria: tessuti nuovi e di qualità che le aziende dismettono a fine collezione.</p>
-        <a class="freccia" href="https://shop.repunto.it/">Vai allo shop →</a>
+        <a class="freccia" href="borse-accessori-repunto-disponibili">Vai allo shop →</a>
       </article>
       <article class="card">
         <span class="n">02</span>
         <div class="foto"><img src="img/cuore-patchwork-su-carta.jpg" width="1200" height="1600" loading="lazy" alt="Cuore in patchwork su carta cucito con un tessuto rosso e un tessuto a fiori arancioni"></div>
         <h3>Schede per cucire a casa</h3>
         <p>Progetti spiegati passo passo con le foto delle mie mani: cucito a mano, patchwork su carta, disegni da ricamo. Presto anche riparazioni e fettuccia per l'uncinetto.</p>
-        <a class="freccia" href="https://shop.repunto.it/collection/libreria-digitale-risorse-repunto">Vedi le schede →</a>
+        <a class="freccia" href="schede-per-cucire">Vedi le schede →</a>
       </article>
       <article class="card">
         <span class="n">03</span>
@@ -121,7 +174,7 @@
 <section class="corsi" id="corsi">
   <div class="wrap">
     <div class="foto-corsi">
-      <img src="img/mani-cucito-a-mano.jpg" width="1050" height="1400" loading="lazy" alt="Mani che cuciono a mano con ago e filo azzurro l'orlo di un tessuto di lino bianco">
+      <img src="img/laboratorio-duse-jeans.jpg" width="1050" height="1575" loading="lazy" alt="Partecipanti intorno a un tavolo guardano da vicino un paio di jeans durante il laboratorio di upcycling al Teatro Duse di Bologna">
       <span class="mano">i materiali li porto io</span>
     </div>
     <div>
@@ -149,6 +202,7 @@
       <span class="etichetta">Chi sono</span>
       <h2>Cucio insieme memoria, bellezza <em>e futuro</em></h2>
       <p>Mi chiamo Greta Naselli e ho fondato Repunto. Sono artista del tessile, consulente di moda sostenibile e insegnante di sartoria zero waste.</p>
+      <p>Ho studiato Tecniche e culture della moda all'Università di Bologna, al campus di Rimini, e modellistica alla Secoli Next Fashion School di Bologna. Dal 2022 tengo il laboratorio di upcycling «Moda, teatro, sostenibilità» al Teatro Duse di Bologna.</p>
       <p>Vivo in Sicilia, in campagna, dove coltivo la mia visione tra terra, fili e storie: gesti lenti, trasformazioni sartoriali, permacultura e agricoltura naturale.</p>
       <p>Lavoro soprattutto con i campionari di tappezzeria che le aziende usano per presentare le collezioni e poi dismettono: tessuti nuovi e di qualità, che altrimenti nessuno userebbe.</p>
       <a class="freccia" href="il-manifesto-di-sostenibilita-di-repunto">Leggi il manifesto di Repunto →</a>
@@ -183,7 +237,7 @@
       <details open><summary>Da dove vengono i tessuti di Repunto?</summary>
         <p>Sono campionari di tappezzeria: tessuti nuovi con cui le aziende presentano le collezioni ai clienti. Quando la collezione cambia, i campionari vengono dismessi. Io li recupero e li trasformo in pezzi unici.</p></details>
       <details><summary>Dove si trova il laboratorio?</summary>
-        <p>In campagna, vicino a Regalbuto, in provincia di Enna. Ho anche uno studio a Catania. Spedisco in tutta Italia.</p></details>
+        <p>In campagna, ai piedi dell'Etna, vicino a Regalbuto (Enna). Spedisco in tutta Italia.</p></details>
       <details><summary>Quanto costa la spedizione?</summary>
         <p>9 € a ordine, gratuita sopra i 60 €.</p></details>
       <details><summary>Organizzi corsi di cucito e riciclo per la mia scuola o associazione?</summary>
@@ -213,7 +267,7 @@
           <input type="hidden" name="anticsrf" value="true">
           <button class="btn scuro" type="submit">Iscriviti</button>
         </div>
-        <p class="grazie" role="status">Grazie! Ti ho appena mandato un'email: clicca il link dentro per confermare l'iscrizione.</p>
+        <p class="grazie" role="status">Grazie, sei dentro! Ti ho appena scritto: se non trovi la mia email, guarda in Promozioni o nello spam.</p>
       </form>
     </div>
   </div>
@@ -248,8 +302,20 @@
       "@id": "https://repunto.it/#greta",
       "name": "Greta Naselli",
       "jobTitle": "Artista del tessile e insegnante di sartoria zero waste",
+      "description": "Artista del tessile, fondatrice di Repunto, sartoria rigenerativa in campagna ai piedi dell'Etna, vicino a Regalbuto (Enna). Insegna sartoria e upcycling a scuole, teatri ed enti; dal 2022 tiene il laboratorio di upcycling al Teatro Duse di Bologna.",
       "image": "https://repunto.it/img/greta-sorride.jpg",
-      "worksFor": { "@id": "https://repunto.it/#repunto" }
+      "worksFor": { "@id": "https://repunto.it/#repunto" },
+      "homeLocation": { "@type": "Place", "address": { "@type": "PostalAddress", "addressLocality": "Regalbuto", "addressRegion": "EN", "addressCountry": "IT" } },
+      "alumniOf": [
+        { "@type": "CollegeOrUniversity", "name": "Università di Bologna, campus di Rimini (Tecniche e culture della moda)" },
+        { "@type": "EducationalOrganization", "name": "Secoli Next Fashion School, Bologna" }
+      ],
+      "knowsAbout": ["sartoria", "upcycling", "riciclo tessile", "costume teatrale", "modellistica", "patchwork su carta", "ricamo"],
+      "sameAs": [
+        "https://www.linkedin.com/in/greta-naselli",
+        "https://www.instagram.com/repunto/",
+        "https://www.facebook.com/repuntofficial"
+      ]
     },
     {
       "@type": "WebSite",
@@ -263,7 +329,7 @@
       "@type": "FAQPage",
       "mainEntity": [
         { "@type": "Question", "name": "Da dove vengono i tessuti di Repunto?", "acceptedAnswer": { "@type": "Answer", "text": "Sono campionari di tappezzeria: tessuti nuovi con cui le aziende presentano le collezioni ai clienti. Quando la collezione cambia, i campionari vengono dismessi. Io li recupero e li trasformo in pezzi unici." } },
-        { "@type": "Question", "name": "Dove si trova il laboratorio?", "acceptedAnswer": { "@type": "Answer", "text": "In campagna, vicino a Regalbuto, in provincia di Enna. Ho anche uno studio a Catania. Spedisco in tutta Italia." } },
+        { "@type": "Question", "name": "Dove si trova il laboratorio?", "acceptedAnswer": { "@type": "Answer", "text": "In campagna, ai piedi dell'Etna, vicino a Regalbuto (Enna). Spedisco in tutta Italia." } },
         { "@type": "Question", "name": "Quanto costa la spedizione?", "acceptedAnswer": { "@type": "Answer", "text": "9 € a ordine, gratuita sopra i 60 €." } },
         { "@type": "Question", "name": "Organizzi corsi di cucito e riciclo per la mia scuola o associazione?", "acceptedAnswer": { "@type": "Answer", "text": "Sì. Workshop di due ore o percorsi in più incontri, con i materiali compresi. Scrivimi e ti mando una proposta." } },
         { "@type": "Question", "name": "Come si cuce un buco o uno strappo a mano?", "acceptedAnswer": { "@type": "Answer", "text": "Prima si guarda che danno è: una cucitura aperta, uno strappo dritto, uno strappo ad angolo, un buco o una zona consumata non si riparano allo stesso modo. Per molti basta ago e filo, senza macchina." } },
@@ -280,15 +346,15 @@
   <div class="wrap">
     <div>
       <img class="logo-chiaro" src="img/logo-repunto.png" width="500" height="500" loading="lazy" alt="">
-      <p><strong>Repunto</strong> — sartoria rigenerativa di Greta Naselli, artista del tessile.<br>Laboratorio in campagna vicino a Regalbuto (EN), studio a Catania.</p>
+      <p><strong>Repunto</strong> — sartoria rigenerativa di Greta Naselli, artista del tessile.<br>Laboratorio in campagna vicino a Regalbuto (EN).</p>
     </div>
     <div>
       <h2>Il sito</h2>
       <ul>
-        <li><a href="https://shop.repunto.it/">Shop</a></li>
-        <li><a href="https://shop.repunto.it/collection/libreria-digitale-risorse-repunto">Schede per cucire</a></li>
+        <li><a href="borse-accessori-repunto-disponibili">Borse e accessori</a></li>
+        <li><a href="schede-per-cucire">Schede per cucire</a></li>
         <li><a href="corsi-per-scuole-ed-enti">Corsi per scuole ed enti</a></li>
-        <li><a href="prenota-una-lezione-privata">Lezioni private a Catania</a></li>
+        <li><a href="prenota-una-lezione-privata">Lezioni private in campagna</a></li>
         <li><a href="cesta-tramanda-riciclare-i-vestiti-artigianalmente">Cesta Tramanda</a></li>
         <li><a href="tenda-patchwork">Tenda patchwork</a></li>
         <li><a href="diventa-rivenditore">Per i negozi</a></li>
@@ -306,9 +372,14 @@
         <li><a href="https://www.pinterest.com/Repunto_Sartoria_Zero_Waste/">Pinterest</a></li>
       </ul>
     </div>
-    <p class="legale">© Repunto di Greta Naselli · P.IVA <span>da inserire</span> · <a href="privacy">Privacy</a></p>
+    <p class="legale">© Repunto di Greta Naselli · P.IVA IT06038500879 · <a href="condizioni-di-vendita">Condizioni di vendita</a> · <a href="privacy">Privacy</a> · <a href="#" data-cookie>Preferenze cookie</a></p>
   </div>
 </footer>
+
+<div class="banner-cookie" id="banner-cookie" role="dialog" aria-label="Cookie" hidden>
+  <p>Uso Google Analytics per contare le visite e capire quali pagine servono di più. Lo accendo solo se mi dici di sì. <a href="privacy">Privacy</a></p>
+  <div><button class="btn" type="button" data-cookie-si>Va bene</button><button class="btn vuoto" type="button" data-cookie-no>No, grazie</button></div>
+</div>
 
 <script src="sito.js"></script>
 
