@@ -6,12 +6,13 @@
 <meta name="robots" content="noindex">
 <title>Pagina non trovata | Repunto</title>
 <script>
-// Su repunto.it gli indirizzi che il sito non conosce (download dei clienti, carrello, prodotti) sono dello shop Payhip:
-// si rimanda allo stesso percorso su shop.repunto.it, così i link vecchi continuano a funzionare.
+// Fino a ottobre 2026 su repunto.it c'era il negozio Payhip. I link che i clienti hanno ricevuto da Payhip
+// (download /d/..., ordini, carrello, area clienti) continuano su payhip.com, dove il negozio resta aperto senza vendite.
+// Perché funzioni, al cambio dei DNS il dominio repunto.it va scollegato da Payhip (Impostazioni → Domini).
 (function () {
-  var h = location.hostname;
-  if (h === 'repunto.it' || h === 'www.repunto.it') {
-    location.replace('https://shop.repunto.it' + location.pathname + location.search + location.hash);
+  var h = location.hostname, p = location.pathname;
+  if ((h === 'repunto.it' || h === 'www.repunto.it') && /^\/(d|b|buy|cart|checkout|order|orders|account|Repunto|auth)(\/|$)/.test(p)) {
+    location.replace('https://payhip.com' + p + location.search + location.hash);
   }
 })();
 </script>
@@ -24,11 +25,18 @@
 <body>
   <main>
     <h1>Questa pagina non c'è</h1>
-    <p>Forse si è spostata. <a id="home" href="https://repunto.it/">Torna alla home di Repunto</a> o <a href="https://shop.repunto.it/">vai allo shop</a>.</p>
+    <p>Forse si è spostata. <a id="home" href="https://repunto.it/">Torna alla home di Repunto</a>, guarda le <a id="schede" href="https://repunto.it/schede-per-cucire">schede per cucire</a> o le <a id="borse" href="https://repunto.it/borse-accessori-repunto-disponibili">borse disponibili</a>.</p>
+    <p>Cerchi una scheda comprata prima di novembre 2026? Scrivimi a <a href="mailto:repunto.studio@gmail.com">repunto.studio@gmail.com</a> e te la mando.</p>
   </main>
 <script>
-// nella bozza su github.io la home sta sotto /sito-repunto/
-if (location.hostname.indexOf('github.io') !== -1) document.getElementById('home').href = '/sito-repunto/';
+// nella bozza su github.io il sito sta sotto /sito-repunto/, nell'anteprima sul PC sotto /
+(function () {
+  var base = location.hostname.indexOf('github.io') !== -1 ? '/sito-repunto/' : (location.hostname === 'localhost' ? '/' : null);
+  if (!base) return;
+  document.getElementById('home').href = base;
+  document.getElementById('schede').href = base + 'schede-per-cucire';
+  document.getElementById('borse').href = base + 'borse-accessori-repunto-disponibili';
+})();
 </script>
 </body>
 </html>
