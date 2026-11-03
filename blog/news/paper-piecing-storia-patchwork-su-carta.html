@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="noindex, nofollow">
+
 <title>Paper piecing: cos'è e storia del patchwork su carta | Repunto</title>
 <meta name="description" content="Il paper piecing è il patchwork cucito su carta. Cos'è, come funziona e la sua storia, dalla trapunta siciliana del Trecento ai modelli di oggi.">
 <link rel="canonical" href="https://repunto.it/blog/news/paper-piecing-storia-patchwork-su-carta">
@@ -17,10 +17,27 @@
 <link rel="icon" href="../../img/logo-repunto.png" type="image/png">
 <link rel="preload" href="../../fonts/librebaskerville-normal-400-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="../../stile.css">
+<script>document.documentElement.classList.add('js');</script>
+<script>
+// Google Analytics (G-EC28FRG0GD): solo su repunto.it e solo dopo il consenso (banner dei cookie in sito.js).
+// Senza consenso Google Analytics non si carica affatto.
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+function caricaStatistiche() {
+  if (window.gaCaricato || !(location.hostname === 'repunto.it' || location.hostname === 'www.repunto.it')) return;
+  window.gaCaricato = true;
+  var ga = document.createElement('script'); ga.async = true;
+  ga.src = 'https://www.googletagmanager.com/gtag/js?id=G-EC28FRG0GD';
+  document.head.appendChild(ga);
+  gtag('js', new Date()); gtag('config', 'G-EC28FRG0GD', { anonymize_ip: true });
+}
+try { if (localStorage.getItem('repunto-cookie') === 'si') caricaStatistiche(); } catch (e) {}
+</script>
 </head>
 <body>
 
 <a class="salta" href="#contenuto">Vai al contenuto</a>
+<div class="filo-lettura" aria-hidden="true"><span></span></div>
 <header class="testata">
   <div class="wrap">
     <a class="logo" href="../.././" aria-label="Repunto, torna alla home"><img src="../../img/logo-repunto.png" width="500" height="500" alt="Repunto"></a>
@@ -29,10 +46,10 @@
       <ul>
         <li><a href="../../corsi-per-scuole-ed-enti">Corsi per enti</a></li>
         <li><a href="../../prenota-una-lezione-privata">Lezioni</a></li>
-        <li><a href="https://shop.repunto.it/collection/libreria-digitale-risorse-repunto">Schede per cucire</a></li>
+        <li><a href="../../schede-per-cucire">Schede per cucire</a></li>
         <li><a href="../../blog/news" aria-current="page">Blog</a></li>
         <li><a href="../../contact">Contatti</a></li>
-        <li class="shop"><a href="https://shop.repunto.it/">Shop</a></li>
+        <li class="shop"><a href="../../borse-accessori-repunto-disponibili">Shop</a></li>
       </ul>
     </nav>
   </div>
@@ -116,7 +133,7 @@
     <p><strong>Perché funziona.</strong> La carta non si allunga, quindi anche i pezzi tagliati in sbieco restano dritti. Ogni cucitura è una linea dritta che attraversa tutto il pezzo già cucito: non servono misure perfette sul tessuto, basta seguire la linea.</p>
 
     <h2>Come lo faccio io da Repunto</h2>
-    <p>Ho creato Repunto a 20 anni. Oggi lavoro da sola, nel mio laboratorio in campagna vicino a Regalbuto, in provincia di Enna, e cucio soprattutto con le cartelle colore di tappezzeria che le aziende dismettono a fine collezione.</p>
+    <p>Ho creato Repunto a 20 anni. Oggi lavoro da sola, nel mio laboratorio in campagna ai piedi dell'Etna, e cucio soprattutto con le cartelle colore di tappezzeria che le aziende dismettono a fine collezione.</p>
     <p>Il patchwork su carta è la tecnica perfetta per questi tessuti, perché i campioni sono piccoli. Un ritaglio che da solo non basta per niente diventa un pezzo preciso di un disegno.</p>
     <p>Il metodo classico però ha un punto che confonde quasi tutti: si lavora a specchio, sul retro della carta, e il disegno si vede solo quando si gira il pezzo. Per questo lavoro in un altro modo.</p>
 
@@ -161,7 +178,7 @@
     <h3>Qual è la trapunta più antica d'Europa?</h3>
     <p>La più antica trapunta da letto europea arrivata fino a noi è la coperta di Tristano, cucita in Sicilia tra il 1360 e il 1400. È divisa tra il Victoria and Albert Museum di Londra e il Museo del Bargello di Firenze.</p>
 
-    <p class="breve">Se vuoi provare, ogni mese nella mia newsletter spiego passo per passo un progetto da cucire con quello che hai già in casa. <a href="../.././">Ti iscrivi dalla home di repunto.it</a>.</p>
+    <p class="breve">Se vuoi provare, ogni mese nella mia newsletter spiego passo per passo un progetto da cucire con quello che hai già in casa. <a href="#newsletter">Ti iscrivi qui sotto</a>.</p>
 
     <h2>Fonti</h2>
     <ul class="fonti">
@@ -180,6 +197,25 @@
   </article>
 </section>
 
+<section class="finale" id="newsletter">
+  <div class="wrap">
+    <img src="../../img/mani-cucito-a-mano.jpg" width="1050" height="1400" loading="lazy" alt="Mani che cuciono a mano un orlo con ago e filo azzurro">
+    <div>
+      <span class="etichetta" style="color:var(--ink)">La newsletter</span>
+      <h2>Un progetto al mese, <em>con quello che hai in casa</em></h2>
+      <p>Il primo di ogni mese ti scrivo una lettera dal laboratorio con un progetto di riciclo tessile spiegato passo passo, il video gratis e un codice per avere la scheda del mese a 4 € invece di 6 €. L'iscrizione è gratis, niente pubblicità, si esce quando vuoi.</p>
+      <form class="iscrizione" data-posizione="articolo" action="https://assets.mailerlite.com/jsonp/1419613/forms/197850587236140136/subscribe" method="post">
+        <div class="campo">
+          <input type="email" name="fields[email]" placeholder="La tua email" aria-label="La tua email" autocomplete="email" required>
+          <input type="hidden" name="ml-submit" value="1">
+          <input type="hidden" name="anticsrf" value="true">
+          <button class="btn scuro" type="submit">Iscriviti</button>
+        </div>
+        <p class="grazie" role="status">Grazie, sei dentro! Ti ho appena scritto: se non trovi la mia email, guarda in Promozioni o nello spam.</p>
+      </form>
+    </div>
+  </div>
+</section>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -214,15 +250,15 @@
   <div class="wrap">
     <div>
       <img class="logo-chiaro" src="../../img/logo-repunto.png" width="500" height="500" loading="lazy" alt="">
-      <p><strong>Repunto</strong> — sartoria rigenerativa di Greta Naselli, artista del tessile.<br>Laboratorio in campagna vicino a Regalbuto (EN), studio a Catania.</p>
+      <p><strong>Repunto</strong> — sartoria rigenerativa di Greta Naselli, artista del tessile.<br>Laboratorio in campagna vicino a Regalbuto (EN).</p>
     </div>
     <div>
       <h2>Il sito</h2>
       <ul>
-        <li><a href="https://shop.repunto.it/">Shop</a></li>
-        <li><a href="https://shop.repunto.it/collection/libreria-digitale-risorse-repunto">Schede per cucire</a></li>
+        <li><a href="../../borse-accessori-repunto-disponibili">Borse e accessori</a></li>
+        <li><a href="../../schede-per-cucire">Schede per cucire</a></li>
         <li><a href="../../corsi-per-scuole-ed-enti">Corsi per scuole ed enti</a></li>
-        <li><a href="../../prenota-una-lezione-privata">Lezioni private a Catania</a></li>
+        <li><a href="../../prenota-una-lezione-privata">Lezioni private in campagna</a></li>
         <li><a href="../../cesta-tramanda-riciclare-i-vestiti-artigianalmente">Cesta Tramanda</a></li>
         <li><a href="../../tenda-patchwork">Tenda patchwork</a></li>
         <li><a href="../../diventa-rivenditore">Per i negozi</a></li>
@@ -240,9 +276,14 @@
         <li><a href="https://www.pinterest.com/Repunto_Sartoria_Zero_Waste/">Pinterest</a></li>
       </ul>
     </div>
-    <p class="legale">© Repunto di Greta Naselli · P.IVA <span>da inserire</span> · <a href="../../privacy">Privacy</a></p>
+    <p class="legale">© Repunto di Greta Naselli · P.IVA IT06038500879 · <a href="../../condizioni-di-vendita">Condizioni di vendita</a> · <a href="../../privacy">Privacy</a> · <a href="#" data-cookie>Preferenze cookie</a></p>
   </div>
 </footer>
+
+<div class="banner-cookie" id="banner-cookie" role="dialog" aria-label="Cookie" hidden>
+  <p>Uso Google Analytics per contare le visite e capire quali pagine servono di più. Lo accendo solo se mi dici di sì. <a href="../../privacy">Privacy</a></p>
+  <div><button class="btn" type="button" data-cookie-si>Va bene</button><button class="btn vuoto" type="button" data-cookie-no>No, grazie</button></div>
+</div>
 
 <script src="../../sito.js"></script>
 
