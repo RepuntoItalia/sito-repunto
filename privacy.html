@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="noindex, nofollow">
+
 <title>Privacy | Repunto</title>
 <meta name="description" content="Come Repunto tratta i dati personali di chi visita il sito, si iscrive alla newsletter, scrive o compra: quali dati, perché, con quali servizi e come esercitare i propri diritti.">
 <link rel="canonical" href="https://repunto.it/privacy">
@@ -17,10 +17,27 @@
 <link rel="icon" href="img/logo-repunto.png" type="image/png">
 <link rel="preload" href="fonts/librebaskerville-normal-400-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="stile.css">
+<script>document.documentElement.classList.add('js');</script>
+<script>
+// Google Analytics (G-EC28FRG0GD): solo su repunto.it e solo dopo il consenso (banner dei cookie in sito.js).
+// Senza consenso Google Analytics non si carica affatto.
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+function caricaStatistiche() {
+  if (window.gaCaricato || !(location.hostname === 'repunto.it' || location.hostname === 'www.repunto.it')) return;
+  window.gaCaricato = true;
+  var ga = document.createElement('script'); ga.async = true;
+  ga.src = 'https://www.googletagmanager.com/gtag/js?id=G-EC28FRG0GD';
+  document.head.appendChild(ga);
+  gtag('js', new Date()); gtag('config', 'G-EC28FRG0GD', { anonymize_ip: true });
+}
+try { if (localStorage.getItem('repunto-cookie') === 'si') caricaStatistiche(); } catch (e) {}
+</script>
 </head>
 <body>
 
 <a class="salta" href="#contenuto">Vai al contenuto</a>
+<div class="filo-lettura" aria-hidden="true"><span></span></div>
 <header class="testata">
   <div class="wrap">
     <a class="logo" href="./" aria-label="Repunto, torna alla home"><img src="img/logo-repunto.png" width="500" height="500" alt="Repunto"></a>
@@ -29,10 +46,10 @@
       <ul>
         <li><a href="corsi-per-scuole-ed-enti">Corsi per enti</a></li>
         <li><a href="prenota-una-lezione-privata">Lezioni</a></li>
-        <li><a href="https://shop.repunto.it/collection/libreria-digitale-risorse-repunto">Schede per cucire</a></li>
+        <li><a href="schede-per-cucire">Schede per cucire</a></li>
         <li><a href="blog/news">Blog</a></li>
         <li><a href="contact">Contatti</a></li>
-        <li class="shop"><a href="https://shop.repunto.it/">Shop</a></li>
+        <li class="shop"><a href="borse-accessori-repunto-disponibili">Shop</a></li>
       </ul>
     </nav>
   </div>
@@ -43,22 +60,26 @@
   <div class="wrap articolo">
     <span class="etichetta">Privacy</span>
     <h1>Informativa sulla privacy</h1>
-    <p class="firma-art">Aggiornata il 20 ottobre 2026.</p>
+    <p class="firma-art">Aggiornata il 25 ottobre 2026.</p>
   </div>
 </section>
 
 <section style="padding-top:0">
   <article class="wrap articolo">
     <h2>Chi tratta i dati</h2>
-    <p>Il titolare del trattamento è Greta Naselli, ditta individuale Repunto, P.IVA <span>da inserire</span>. Per qualsiasi domanda sui tuoi dati puoi scrivermi dalla pagina <a href="contact">Contatti</a>.</p>
+    <p>Il titolare del trattamento è Greta Naselli, ditta individuale, P.IVA IT06038500879, con sede in via Pace 65, 95018 Riposto (CT). Per qualsiasi domanda sui tuoi dati puoi scrivermi dalla pagina <a href="contact">Contatti</a>.</p>
 
     <h2>Quali dati raccolgo e perché</h2>
     <ul>
       <li><strong>Newsletter.</strong> Se ti iscrivi, raccolgo il tuo indirizzo email per mandarti la newsletter di Repunto. L'iscrizione va confermata con un clic nell'email che ricevi, e puoi cancellarti quando vuoi dal link in fondo a ogni email. La base è il tuo consenso. La newsletter è gestita con MailerLite (MailerLite Limited, Irlanda).</li>
       <li><strong>Lista dei negozi.</strong> Se compili il modulo per i rivenditori, raccolgo i dati del negozio e il contatto per scriverti quando ho pezzi disponibili. Anche questo modulo è gestito con MailerLite.</li>
       <li><strong>Messaggi.</strong> I moduli «scrivimi» del sito non salvano niente: preparano un'email che parte dalla tua casella di posta. Uso i dati che mi scrivi solo per risponderti.</li>
-      <li><strong>Acquisti.</strong> Lo shop (shop.repunto.it) è gestito con Payhip, che raccoglie i dati necessari per il pagamento, la consegna dei file e le fatture. I pagamenti passano dai sistemi di pagamento collegati a Payhip: i dati della carta non arrivano a me.</li>
+      <li><strong>Acquisti di pezzi fisici.</strong> Se compri dal negozio del sito, raccolgo nome, email, telefono e indirizzo di spedizione per spedirti l'ordine, rispondere alle tue domande e tenere i documenti fiscali obbligatori. La base è il contratto di vendita e gli obblighi di legge. Il pagamento avviene su Stripe (Stripe Payments Europe Ltd., Irlanda): i dati della carta non arrivano a me. L'ordine passa da un piccolo programma su Cloudflare (Cloudflare, Inc.) che tiene da parte i pezzi mentre paghi e conserva l'elenco degli ordini.</li>
+      <li><strong>Schede PDF.</strong> Se compri una scheda, il pagamento avviene su Stripe e raccolgo nome ed email per consegnarti il file e tenere i documenti fiscali. Il file si scarica da un archivio privato su Cloudflare. Per mandarti l'email con il link per scaricare, il tuo indirizzo entra nel gruppo «acquirenti schede» di MailerLite: non ricevi la newsletter se non ti iscrivi tu. La base è il contratto di vendita. Chi ha comprato schede prima di novembre 2026 le ha comprate su Payhip, che resta il riferimento per quei file.</li>
     </ul>
+
+    <h2>Cookie e statistiche</h2>
+    <p>Il sito usa Google Analytics (Google Ireland Ltd.) per contare le visite e capire quali pagine servono di più, solo se lo accetti dal riquadro che compare alla prima visita. Senza il tuo consenso Google Analytics non si carica. Puoi cambiare idea quando vuoi dal link «Preferenze cookie» in fondo a ogni pagina. Il sito ricorda la tua scelta e il carrello nel tuo browser (memoria locale), senza mandarli a nessuno.</p>
 
     <h2>Il sito</h2>
     <p>Il sito è ospitato su GitHub Pages (GitHub, Inc.), che per motivi di sicurezza registra in modo tecnico l'indirizzo IP di chi visita. I caratteri sono caricati dal sito stesso, senza collegarsi ad altri servizi.</p>
@@ -76,15 +97,15 @@
   <div class="wrap">
     <div>
       <img class="logo-chiaro" src="img/logo-repunto.png" width="500" height="500" loading="lazy" alt="">
-      <p><strong>Repunto</strong> — sartoria rigenerativa di Greta Naselli, artista del tessile.<br>Laboratorio in campagna vicino a Regalbuto (EN), studio a Catania.</p>
+      <p><strong>Repunto</strong> — sartoria rigenerativa di Greta Naselli, artista del tessile.<br>Laboratorio in campagna vicino a Regalbuto (EN).</p>
     </div>
     <div>
       <h2>Il sito</h2>
       <ul>
-        <li><a href="https://shop.repunto.it/">Shop</a></li>
-        <li><a href="https://shop.repunto.it/collection/libreria-digitale-risorse-repunto">Schede per cucire</a></li>
+        <li><a href="borse-accessori-repunto-disponibili">Borse e accessori</a></li>
+        <li><a href="schede-per-cucire">Schede per cucire</a></li>
         <li><a href="corsi-per-scuole-ed-enti">Corsi per scuole ed enti</a></li>
-        <li><a href="prenota-una-lezione-privata">Lezioni private a Catania</a></li>
+        <li><a href="prenota-una-lezione-privata">Lezioni private in campagna</a></li>
         <li><a href="cesta-tramanda-riciclare-i-vestiti-artigianalmente">Cesta Tramanda</a></li>
         <li><a href="tenda-patchwork">Tenda patchwork</a></li>
         <li><a href="diventa-rivenditore">Per i negozi</a></li>
@@ -102,9 +123,14 @@
         <li><a href="https://www.pinterest.com/Repunto_Sartoria_Zero_Waste/">Pinterest</a></li>
       </ul>
     </div>
-    <p class="legale">© Repunto di Greta Naselli · P.IVA <span>da inserire</span> · <a href="privacy">Privacy</a></p>
+    <p class="legale">© Repunto di Greta Naselli · P.IVA IT06038500879 · <a href="condizioni-di-vendita">Condizioni di vendita</a> · <a href="privacy">Privacy</a> · <a href="#" data-cookie>Preferenze cookie</a></p>
   </div>
 </footer>
+
+<div class="banner-cookie" id="banner-cookie" role="dialog" aria-label="Cookie" hidden>
+  <p>Uso Google Analytics per contare le visite e capire quali pagine servono di più. Lo accendo solo se mi dici di sì. <a href="privacy">Privacy</a></p>
+  <div><button class="btn" type="button" data-cookie-si>Va bene</button><button class="btn vuoto" type="button" data-cookie-no>No, grazie</button></div>
+</div>
 
 <script src="sito.js"></script>
 
