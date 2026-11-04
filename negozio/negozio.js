@@ -153,12 +153,12 @@ var SPEDIZIONE = 900, SOGLIA_GRATIS = 6000;
   if (annullato) { history.replaceState(null, '', location.pathname); mostraAvviso('Pagamento annullato: i pezzi sono ancora nel tuo carrello.'); }
 
   // --- avvio
-  // prima dell'apertura (giovedì 5/11 alle 8, con la sua email) la vetrina resta chiusa: il sito è online da sabato 31/10,
+  // prima dell'apertura (domenica 15/11 alle 8, con la sua email; spostata da Greta il 4/11) la vetrina resta chiusa: il sito è online da sabato 31/10,
   // ma la vendita la scoprono per primi gli iscritti alla newsletter. Dall'anteprima sul PC si vede sempre, per i controlli.
-  var APERTURA = Date.parse('2026-11-05T08:00:00+01:00');
+  var APERTURA = Date.parse('2026-11-15T08:00:00+01:00');
   if (Date.now() < APERTURA && location.hostname !== 'localhost') {
     document.querySelectorAll('.filtri, #apri-carrello').forEach(function (el) { el.hidden = true; });
-    vetrina.innerHTML = '<p class="vetrina-chiusa">La vendita apre <strong>giovedì 5 novembre</strong>. Chi è iscritto alla newsletter la vede per primo: <a href="' + (base || './') + '">iscriviti dalla pagina principale</a>.</p>';
+    vetrina.innerHTML = '<p class="vetrina-chiusa">La vendita apre <strong>domenica 15 novembre</strong>. Chi è iscritto alla newsletter la vede per primo: <a href="' + (base || './') + '">iscriviti dalla pagina principale</a>.</p>';
     return;
   }
   fetch(base + 'negozio/catalogo.json', { cache: 'no-cache' })
