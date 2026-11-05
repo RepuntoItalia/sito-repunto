@@ -1,4 +1,4 @@
-// Repunto — negozio: vetrina, scheda del pezzo e carrello.
+// Repunto — negozio: vetrina, pagine dei pezzi (pezzi/NN-nome, fatte da costruisci.ps1) e carrello.
 // I prezzi qui servono solo da mostrare: quelli che si pagano li decide il Worker (negozio/worker).
 
 // Indirizzo del Worker su Cloudflare (da aggiornare dopo la prima pubblicazione del Worker).
@@ -12,23 +12,28 @@ var SPEDIZIONE = 900, SOGLIA_GRATIS = 6000;
   var scheda = document.getElementById('scheda');
   var carrelloDlg = document.getElementById('carrello');
   var btnCarrello = document.getElementById('apri-carrello');
-  var catalogo = [], perNumero = {}, disp = null, filtro = '', aperto = null;
+  var pagina = document.getElementById('pezzo-pagina');   // pagina dedicata di un pezzo (pezzi/NN-nome)
+  var catalogo = [], perNumero = {}, disp = null, filtro = '';
   var carrello = leggi();
 
-  function euro(c) { var e = c / 100; return (e % 1 ? e.toFixed(2).replace('.', ',') : String(e)) + ' €'; }
+  function euro(c) { var e = c / 100; return (c % 100 ? e.toFixed(2).replace('.', ',') : String(e)) + ' €'; }
   function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
   function leggi() { try { return JSON.parse(localStorage.getItem('repunto-carrello') || '{}') || {}; } catch (e) { return {}; } }
   function salva() { try { localStorage.setItem('repunto-carrello', JSON.stringify(carrello)); } catch (e) {} }
   function quanti(n) { return disp ? (disp[n] || 0) : perNumero[n].quantita; }
-  function mostraAvviso(t) { avviso.textContent = t; avviso.hidden = !t; if (t) avviso.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
+  // indirizzo della pagina del pezzo: stesso calcolo di costruisci.ps1
+  function slug(t) { return t.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, ''); }
+  function indirizzo(p) { return base + 'pezzi/' + p.n + '-' + slug(p.titolo); }
+  function mostraAvviso(t) { if (!avviso) return; avviso.textContent = t; avviso.hidden = !t; if (t) avviso.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
 
   function apriDialogo(d) { if (d.showModal) d.showModal(); else d.setAttribute('open', ''); }
   function chiudiDialogo(d) { if (d.close) d.close(); else d.removeAttribute('open'); }
   document.querySelectorAll('[data-chiudi]').forEach(function (b) { b.addEventListener('click', function () { chiudiDialogo(b.closest('dialog')); }); });
-  [scheda, carrelloDlg].forEach(function (d) { d.addEventListener('click', function (e) { if (e.target === d) chiudiDialogo(d); }); });
+  [scheda, carrelloDlg].filter(Boolean).forEach(function (d) { d.addEventListener('click', function (e) { if (e.target === d) chiudiDialogo(d); }); });
 
   // --- vetrina
   function disegna() {
+    if (!vetrina) return;
     var lista = catalogo.filter(function (p) { return !filtro || p.categoria === filtro; });
     // ordine del catalogo (prima le borse in tessuto, poi quelle all'uncinetto…), i venduti in fondo
     lista.sort(function (a, b) { return (quanti(a.n) ? 0 : 1) - (quanti(b.n) ? 0 : 1) || catalogo.indexOf(a) - catalogo.indexOf(b); });
@@ -37,17 +42,16 @@ var SPEDIZIONE = 900, SOGLIA_GRATIS = 6000;
       var resta = venduto ? '' : (p.quantita === 1 ? 'Pezzo unico' : (q === 1 ? "Ne resta 1" : 'Ne restano ' + q));
       return '<article class="pezzo' + (venduto ? ' venduto' : '') + '">' +
         (venduto ? '<span class="bollo">Venduto</span>' : '') +
-        '<button class="apri" type="button" data-n="' + p.n + '"><img src="' + base + p.mini + '" width="420" height="560" loading="lazy" alt="' + esc(p.titolo) + '"></button>' +
-        '<div class="info"><h3>' + esc(p.titolo) + '</h3><span class="prezzo">' + euro(p.prezzo) + '</span>' +
+        '<a class="apri" href="' + indirizzo(p) + '"><img src="' + base + p.mini + '" width="420" height="560" loading="lazy" alt="' + esc(p.titolo) + '"></a>' +
+        '<div class="info"><h3><a href="' + indirizzo(p) + '">' + esc(p.titolo) + '</a></h3><span class="prezzo">' + euro(p.prezzo) + '</span>' +
         (p.misure ? '<span class="misura">' + esc(p.misure.split(' · ')[0]) + '</span>' : '') +
         '<span class="resta">' + resta + '</span>' +
         '<button class="btn aggiungi" type="button" data-agg="' + p.n + '">Aggiungi</button></div></article>';
     }).join('') || '<p>In questa categoria non c\'è niente, per ora.</p>';
   }
-  vetrina.addEventListener('click', function (e) {
-    var a = e.target.closest('[data-n]'), g = e.target.closest('[data-agg]');
-    if (a) apriScheda(+a.dataset.n);
-    if (g) { aggiungi(+g.dataset.agg); }
+  if (vetrina) vetrina.addEventListener('click', function (e) {
+    var g = e.target.closest('[data-agg]');
+    if (g) aggiungi(+g.dataset.agg);
   });
   document.querySelectorAll('.filtri button').forEach(function (b) {
     b.addEventListener('click', function () {
@@ -57,31 +61,21 @@ var SPEDIZIONE = 900, SOGLIA_GRATIS = 6000;
     });
   });
 
-  // --- scheda del pezzo
-  function apriScheda(n) {
-    var p = perNumero[n]; aperto = n;
-    var q = quanti(n);
-    document.getElementById('scheda-titolo').textContent = p.titolo;
-    document.getElementById('scheda-prezzo').textContent = euro(p.prezzo);
-    document.getElementById('scheda-desc').textContent = p.descrizione;
-    document.getElementById('scheda-misure').textContent = p.misure ? 'Misure: ' + p.misure : '';
-    document.getElementById('scheda-resta').textContent = q === 0 ? 'Venduto.' : (p.quantita === 1 ? 'Pezzo unico: ne esiste solo uno.' : (q === 1 ? 'Ne resta uno.' : 'Ne restano ' + q + '.'));
-    var b = document.getElementById('scheda-aggiungi'); b.hidden = q === 0;
-    var mini = document.getElementById('scheda-mini');
-    mini.innerHTML = p.foto.map(function (f, i) {
-      return '<button type="button" data-i="' + i + '" aria-label="Foto ' + (i + 1) + '"' + (i ? '' : ' aria-current="true"') + '><img src="' + base + f + '" alt="" loading="lazy"></button>';
-    }).join('');
-    mostraFoto(0);
-    apriDialogo(scheda);
+  // --- pagina del pezzo: foto, quanti ne restano, «Aggiungi al carrello»
+  function disegnaPagina() {
+    if (!pagina) return;
+    var n = +pagina.dataset.n, p = perNumero[n], q = p ? quanti(n) : 0;
+    document.getElementById('pezzo-resta').textContent = !p || q === 0 ? 'Venduto.' : (p.quantita === 1 ? 'Pezzo unico: ne esiste solo uno.' : (q === 1 ? 'Ne resta uno.' : 'Ne restano ' + q + '.'));
+    document.getElementById('pezzo-aggiungi').hidden = !p || q === 0;
   }
-  function mostraFoto(i) {
-    var p = perNumero[aperto], img = document.getElementById('scheda-foto');
-    img.src = base + p.foto[i]; img.alt = p.titolo + (i ? ', foto ' + (i + 1) : '');
-    document.querySelectorAll('#scheda-mini button').forEach(function (b) { b.setAttribute('aria-current', +b.dataset.i === i ? 'true' : 'false'); });
+  if (pagina) {
+    document.getElementById('pezzo-mini').addEventListener('click', function (e) {
+      var b = e.target.closest('[data-foto]'); if (!b) return;
+      document.getElementById('pezzo-foto').src = b.dataset.foto;
+      document.querySelectorAll('#pezzo-mini button').forEach(function (x) { x.setAttribute('aria-current', x === b ? 'true' : 'false'); });
+    });
+    document.getElementById('pezzo-aggiungi').addEventListener('click', function () { aggiungi(+pagina.dataset.n); });
   }
-  document.getElementById('scheda-mini').addEventListener('click', function (e) { var b = e.target.closest('[data-i]'); if (b) mostraFoto(+b.dataset.i); });
-  document.getElementById('scheda-aggiungi').addEventListener('click', function () { chiudiDialogo(scheda); aggiungi(aperto); });
-
   // --- carrello
   function aggiungi(n) {
     var q = quanti(n), gia = carrello[n] || 0;
@@ -157,7 +151,8 @@ var SPEDIZIONE = 900, SOGLIA_GRATIS = 6000;
   // ma la vendita la scoprono per primi gli iscritti alla newsletter. Dall'anteprima sul PC si vede sempre, per i controlli.
   var APERTURA = Date.parse('2026-11-15T08:00:00+01:00');
   if (Date.now() < APERTURA && location.hostname !== 'localhost') {
-    document.querySelectorAll('.filtri, #apri-carrello').forEach(function (el) { el.hidden = true; });
+    document.querySelectorAll('.filtri, #apri-carrello, #pezzo-aggiungi').forEach(function (el) { el.hidden = true; });
+    if (pagina) { document.getElementById('pezzo-resta').innerHTML = 'La vendita apre <strong>domenica 15 novembre</strong>, alle 8.'; return; }
     vetrina.innerHTML = '<p class="vetrina-chiusa">La vendita apre <strong>domenica 15 novembre</strong>. Chi è iscritto alla newsletter la vede per primo: <a href="' + (base || './') + '">iscriviti dalla pagina principale</a>.</p>';
     return;
   }
@@ -165,14 +160,14 @@ var SPEDIZIONE = 900, SOGLIA_GRATIS = 6000;
     .then(function (r) { return r.json(); })
     .then(function (c) {
       catalogo = c; c.forEach(function (p) { perNumero[p.n] = p; });
-      disegna(); aggiorna();
+      disegna(); disegnaPagina(); aggiorna();
       return pronto.then(function () { return fetch(NEGOZIO_API + '/disponibili', { cache: 'no-store' }); })
         .then(function (r) { return r.json(); })
         .then(function (d) {
-          disp = d; var tolti = sistemaCarrello(); disegna();
+          disp = d; var tolti = sistemaCarrello(); disegna(); disegnaPagina();
           if (tolti.length) mostraAvviso('Nel frattempo è stato venduto: ' + tolti.join(', ') + '. L\'ho tolto dal carrello.');
         })
         .catch(function () { /* senza il Worker la vetrina si vede lo stesso */ });
     })
-    .catch(function () { vetrina.innerHTML = '<p>Non riesco a caricare i pezzi: ricarica la pagina tra poco.</p>'; });
+    .catch(function () { if (vetrina) vetrina.innerHTML = '<p>Non riesco a caricare i pezzi: ricarica la pagina tra poco.</p>'; });
 })();
