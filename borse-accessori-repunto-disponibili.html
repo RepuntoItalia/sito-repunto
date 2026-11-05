@@ -113,21 +113,6 @@ try { if (localStorage.getItem('repunto-cookie') === 'si') caricaStatistiche(); 
 
 <button class="btn scuro apri-carrello" type="button" id="apri-carrello" hidden>Carrello (<span id="conta">0</span>)</button>
 
-<dialog class="scheda-pezzo" id="scheda" aria-labelledby="scheda-titolo">
-  <button class="chiudi" type="button" data-chiudi aria-label="Chiudi">×</button>
-  <div class="dentro">
-    <div class="galleria"><img class="grande" id="scheda-foto" src="" alt=""><div class="miniature" id="scheda-mini"></div></div>
-    <div class="testo">
-      <h2 id="scheda-titolo"></h2>
-      <p class="prezzo" id="scheda-prezzo" style="font-size:22px;margin:0"></p>
-      <p id="scheda-desc" style="margin:0"></p>
-      <p class="misure" id="scheda-misure" style="margin:0"></p>
-      <p class="misure" id="scheda-resta" style="margin:0"></p>
-      <button class="btn" type="button" id="scheda-aggiungi">Aggiungi al carrello</button>
-    </div>
-  </div>
-</dialog>
-
 <dialog class="carrello" id="carrello" aria-labelledby="carrello-titolo">
   <div class="dentro">
     <button class="chiudi" type="button" data-chiudi>Continua a guardare</button>
