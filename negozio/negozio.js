@@ -156,6 +156,15 @@ var SPEDIZIONE = 900, SOGLIA_GRATIS = 6000;
     vetrina.innerHTML = '<p class="vetrina-chiusa">La vendita apre <strong>domenica 15 novembre</strong>. Chi è iscritto alla newsletter la vede per primo: <a href="' + (base || './') + '">iscriviti dalla pagina principale</a>.</p>';
     return;
   }
+  // Greta, 15/11: lo shop dei pezzi chiude il 10/12 a fine giornata. Le schede per cucire restano in vendita (pagine a parte).
+  var CHIUSURA = Date.parse('2026-12-11T00:00:00+01:00');
+  if (Date.now() >= CHIUSURA && location.hostname !== 'localhost') {
+    document.querySelectorAll('.filtri, #apri-carrello, #pezzo-aggiungi').forEach(function (el) { el.hidden = true; });
+    var finito = 'La vendita dei pezzi si è chiusa il <strong>10 dicembre</strong>. Grazie a chi ha scelto un pezzo di Repunto. Le <a href="' + (base || './') + 'schede-per-cucire">schede per cucire</a> restano sempre disponibili.';
+    if (pagina) { document.getElementById('pezzo-resta').innerHTML = finito; return; }
+    vetrina.innerHTML = '<p class="vetrina-chiusa">' + finito + '</p>';
+    return;
+  }
   fetch(base + 'negozio/catalogo.json', { cache: 'no-cache' })
     .then(function (r) { return r.json(); })
     .then(function (c) {
