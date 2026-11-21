@@ -289,7 +289,9 @@ details p { color:var(--ink-soft); font-size:16.5px; padding-right:58px; margin-
 .elenco-art { display:grid; gap:28px; margin-top:32px; }
 .elenco-art a.voce { display:block; text-decoration:none; background:#fff; border-radius:18px; padding:28px 30px; position:relative; }
 .elenco-art .data { font-size:13px; letter-spacing:.14em; text-transform:uppercase; color:var(--oro-scuro); }
-.elenco-art h2 { font-size:clamp(22px,2.6vw,28px); margin:8px 0 10px; }
+.elenco-art h2, .elenco-art h3 { font-size:clamp(22px,2.6vw,28px); margin:8px 0 10px; }
+.leggi-anche .elenco-art h3 { font-size:clamp(19px,2.2vw,23px); }
+.leggi-anche .elenco-art { margin-top:20px; gap:18px; }
 .elenco-art p { color:var(--ink-soft); margin:0; font-size:16px; }
 
 /* calendario delle lezioni */
