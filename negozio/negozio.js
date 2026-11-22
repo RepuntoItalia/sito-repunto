@@ -136,9 +136,9 @@ var SPEDIZIONE = 900, SOGLIA_GRATIS = 6000;
           disp = d.disponibili; var tolti = sistemaCarrello(); disegna();
           alert('Mi dispiace: ' + (tolti.length ? tolti.join(', ') + (tolti.length > 1 ? ' sono stati presi' : ' è stato preso') : 'qualche pezzo è stato preso') + ' da qualcun altro proprio adesso. Ho aggiornato il carrello.');
         } else alert(d.errore || 'Qualcosa non ha funzionato: riprova tra poco.');
-        b.disabled = false; b.textContent = 'Paga';
+        b.disabled = false; b.textContent = 'Ordina e paga';
       })
-      .catch(function () { alert('Non riesco a collegarmi al pagamento: controlla la connessione e riprova.'); b.disabled = false; b.textContent = 'Paga'; });
+      .catch(function () { alert('Non riesco a collegarmi al pagamento: controlla la connessione e riprova.'); b.disabled = false; b.textContent = 'Ordina e paga'; });
   });
 
   // ritorno dalla pagina di pagamento senza pagare: i pezzi tornano liberi
