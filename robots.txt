@@ -3,3 +3,4 @@ Allow: /
 Disallow: /pdf/
 
 Sitemap: https://repunto.it/sitemap.xml
+Sitemap: https://repunto.it/sitemap-pezzi.xml
